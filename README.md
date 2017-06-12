@@ -277,4 +277,4 @@ handler를 이용한 앱 실행, ProgressDialog 활용 , AsyncTask를 이용한 
 
 
 
-![Async.jpg]()
+![Async.jpg](https://github.com/iNusz/ThreadAsyncTask/blob/master/app/src/main/res/mipmap-xxhdpi/Async.jpg)
