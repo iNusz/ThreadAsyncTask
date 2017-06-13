@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     private void setDone() {
-        // todo 이렇게 되면 setDone메소드가 구지 있어야 되는 생각이 .. 차라리 onPostExecute에 넣어주면 어떨까..
-        textView.setText("Done!!!");
+        // todo 이렇게 되면 setDone메소드가 구지 있어야 되는 생각이 .. 차라리 onPostExecute에 넣어주면 어떨까..  -> 넣어줘도된다
+        //textView.setText("Done!!!");
         // 프로그래스 창을 해제
         // progress.dismiss();
     }
@@ -105,14 +105,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(Float aVoid) {  // 위의 서브스레드의 처리가 끝나고 나서 MainThread로 값을 넘겨줄수 있다는 얘기임
                 // 결과값을 메인 UI에 세팅하는 로직을 여기에 작성한다
-                setDone();
+                textView.setText("Done!!!");
                 progress.dismiss();
             }
 
-            // 주기적으로 doInBackground 에서 호출이 가능한 함수   , 진행률을 나타낼수 있다   todo onProgressUpdate = 메인쓰레드 ? 서브쓰레드 ?
+            // 주기적으로 doInBackground 에서 호출이 가능한 함수 , 진행률을 나타낼수 있다   todo onProgressUpdate = 메인쓰레드 ? 서브쓰레드 ?  ->서브쓰레드
             @Override
             protected void onProgressUpdate(Integer... values) {
-                // todo values[0]의 동작원리 , values를 넣으면 왜 주소값이 나오는지 ..
+                // todo values[0]의 동작원리 , values를 넣으면 왜 주소값이 나오는지 .. -> 배열이 주소값을 참조하기 때문에 나오고 위에 publishProgress 메소드 참고
                 progress.setMessage("진행율 = " +values[0]+ "%");
             }
 
